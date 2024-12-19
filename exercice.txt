@@ -1,0 +1,46 @@
+
+Exercice : Gestion d'inventaire simplifiée
+
+Scénario :
+Tu es responsable d'un petit inventaire de magasin. Ton objectif est de créer un programme qui utilise des tuples pour stocker les informations sur les articles de l'inventaire, tout en offrant des fonctionnalités pour :
+
+    Afficher l'inventaire.
+    Ajouter un article.
+    Supprimer un article.
+    Rechercher un article par nom.
+
+Instructions :
+
+    Structure des données :
+        Chaque article de l'inventaire est représenté par un tuple contenant :
+            Le nom de l'article (chaîne de caractères).
+            La quantité disponible (entier).
+            Le prix unitaire (float).
+        L'inventaire entier est stocké dans une liste de tuples.
+
+    Exemple d'une liste d'inventaire :
+
+inventaire = [
+    ("Pommes", 50, 0.5),
+    ("Bananes", 30, 0.3),
+    ("Oranges", 20, 0.6)
+]
+
+Fonctions :
+
+    Crée une fonction afficher_inventaire(inventaire) qui affiche proprement chaque article de l'inventaire.
+    Crée une fonction ajouter_article(inventaire, nom, quantite, prix) qui ajoute un nouvel article (sous forme de tuple) dans la liste d'inventaire.
+    Crée une fonction supprimer_article(inventaire, nom) qui supprime un article par son nom.
+    Crée une fonction rechercher_article(inventaire, nom) qui recherche un article par son nom et affiche ses informations.
+
+Boucle principale :
+
+    Écris une boucle while qui permet à l'utilisateur d'interagir avec ton programme via un menu texte :
+
+        Choisissez une option :
+        1 - Afficher l'inventaire
+        2 - Ajouter un article
+        3 - Supprimer un article
+        4 - Rechercher un article
+        5 - Quitter
+
