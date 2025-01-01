@@ -35,8 +35,6 @@ while get_choice :
       
       for article in articles :
          print(f"Article : {article[0]} Quantité : {article[1]} Prix : {article[2]} €")
-         type(article[0])
-         type(article[1])
          print("")
       continuer()
       print(get_choice)
@@ -83,5 +81,21 @@ while get_choice :
     continuer()
 
   if choice == 4 :
+
+    article_found = False
+    search_article = None
+
     print("Quel article voulez vous consulter ?")
     get_article = input( )
+
+    for article in articles :
+      if get_article.lower() == article[0].lower() :
+        article_found = True
+        search_article = print(f"Article : {article[0]} Quantité : {article[1]} Prix : {article[2]} €")
+    
+    if article_found : 
+      search_article
+    else :
+      print("Article non trouvé")
+    continuer()
+    
