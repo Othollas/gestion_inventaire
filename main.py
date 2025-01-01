@@ -1,16 +1,14 @@
 
 articles = [("Pommes",50, 0.5),("Banane", 30, 0.3), ("Orange", 20, 0.6),("Clementine", 20, 0.5),("Kiwi", 10, 0.8)]
 
-def test_if_exist(test, choice) :
-    try : 
-      if choice == 3 :
-        for i in articles :
-          if test == i[0].lower() :
-            test.delete()
-      get_choice : False
-    except :
-      print("erreur, recommencer ")
-      get_choice = False
+def continuer() :
+  global get_choice
+  get_choice = True
+  input("Pour continuez appuyer sur entré " )
+  
+  return  get_choice
+
+
 # afficher l'inventaire
 
 # Ajouter un article 
@@ -38,10 +36,23 @@ while get_choice :
          type(article[0])
          type(article[1])
          print("")
-      get_choice=True
+      continuer()
+      print(get_choice)
 
   if(choice == 3) :
+    found = 0
     str = input("Quel article voulez vous effacer ? ")
     str = str.lower()
-    test_if_exist(str, choice)
-    
+    index = 0
+    for tulpe in articles :
+      if str == tulpe[0].lower() :
+        found += 1
+        articles.pop(index)
+        print(f"{str} à bien été supprimer à l'index {index}")
+        break
+      index += 1 
+    if found == 0 :
+      print(f"{str} not found")
+    continuer()
+
+  
