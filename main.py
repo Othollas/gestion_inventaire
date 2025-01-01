@@ -4,7 +4,7 @@ articles = [("Pommes",50, 0.5),("Banane", 30, 0.3), ("Orange", 20, 0.6),("Clemen
 def continuer() :
   global get_choice
   get_choice = True
-  input("Pour continuez appuyer sur entré " )
+  input("Pour continuez appuyer sur entrée " )
   
   return  get_choice
 
@@ -29,6 +29,8 @@ while get_choice :
   if(choice > 0) and (choice < 6 ) :
     get_choice = False
 
+  # Voir l'inventaire
+
   if(choice == 1) :
       
       for article in articles :
@@ -38,6 +40,8 @@ while get_choice :
          print("")
       continuer()
       print(get_choice)
+
+  # effacer un article
 
   if(choice == 3) :
     found = 0
@@ -55,4 +59,29 @@ while get_choice :
       print(f"{str} not found")
     continuer()
 
-  
+  # ajouter un article 
+
+  if choice == 2 : 
+
+    exist = False
+    print("entrez l'article à ajouter")
+    new_article = input( )
+    #recherche si l'article existe deja  
+    for article in articles :
+      if article[0].lower() == new_article.lower() :
+        print(f"{new_article} est déja existant dans la base de donnée")
+        exist = True
+        
+    
+    if not exist :
+      print("entrez la quantité du stock de l'article")
+      quantity = input( )
+      print("entrez la valeur unitaire de l'article (en €)")
+      price = input( )
+      articles.append((new_article, quantity, price))
+      print(f"{quantity} {new_article} au prix de {price} € ont bien été ajouté à la base de donnée")
+    continuer()
+
+  if choice == 4 :
+    print("Quel article voulez vous consulter ?")
+    get_article = input( )
