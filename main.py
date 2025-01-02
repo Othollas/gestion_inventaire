@@ -58,10 +58,10 @@ while get_choice :
   choice = input( )
   print(f"le type de la variable choice est {type(choice)}")
   test_input = isinstance(choice, str)
-
   
-  if choice == "1" or choice == "2" or choice == "3" or  choice == "4" or  choice == "5" :
-
+  
+  # if choice == "1" or choice == "2" or choice == "3" or  choice == "4" or  choice == "5" :
+  if choice in ["1","2","3","4","5"] :
     choice = int(choice)
     
   
@@ -94,8 +94,31 @@ while get_choice :
     if not exist :
       print("entrez la quantité du stock de l'article")
       quantity = input( )
+      
+      if quantity.isdigit() : 
+        quantity = int(quantity)
+      
+      while type(quantity) != int :
+        print("Votre entré doit etre un entier, ex : 20 ")
+        print("entrez la quantité du stock de l'article")
+        quantity = input( )
+        if quantity.isdigit() :
+          quantity = int(quantity)
+        
       print("entrez la valeur unitaire de l'article (en €)")
       price = input( )
+      
+      if price.isdigit() :
+        price = float(price) 
+      
+      while type(price) == float :
+        print("Votre entré doit etre un chiffre à virgule ex: 0.5")
+        print("entrez la valeur unitaire de l'article (en €)")
+        price = input( )
+        if price.isdigit() :
+          price= float(quantity)
+        
+      
       articles.append((new_article, quantity, price))
       print(f"{quantity} {new_article} au prix de {price} € ont bien été ajouté à la base de donnée")
     continuer()
@@ -106,7 +129,6 @@ while get_choice :
   if(choice == 3) :
     print("Quel article voulez vous effacer ? ")
     get_delete_article = input( )
-    
     
     search_in_inventory(get_delete_article, choice)
     
